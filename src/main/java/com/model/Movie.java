@@ -25,8 +25,4 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie")
     private List<Review> reviews;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283

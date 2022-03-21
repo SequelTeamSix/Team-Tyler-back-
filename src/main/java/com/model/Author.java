@@ -31,18 +31,9 @@ public class Author {
     private String userName;
     @Column
     private int passWord;
-<<<<<<< HEAD
 
     @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
 }
-=======
-
-    @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
-    @ToString.Exclude
-    private List<Review> reviews = new ArrayList<>();
-
-}
->>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283
