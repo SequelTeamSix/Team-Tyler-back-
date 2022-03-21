@@ -44,7 +44,7 @@ public class  Controller {
         name.setFirstName(fistName);
         name.setLastName(lastName);
         author.setName(name);
-        author.setPassWord(passWord.hashCode());
+        author.setPassWord(String.valueOf(passWord.hashCode()));
         author.setUserName(userName);
 
         authorService.saveAuthor(author);
@@ -56,7 +56,6 @@ public class  Controller {
                              @RequestParam("movieId") int movieId){
         Author author = authorService.findById(authorId);
         Movie movie = new Movie();
-//        List<Review> movieReviews = new ArrayList<>();
         List<Review> authorReviews = new ArrayList<>();
         boolean valid = false;
         for(int i=0;i<author.getReviews().size();i++){
@@ -87,6 +86,7 @@ public class  Controller {
         }
         return authorReviews;
     }
+    //removing a review. I couldn't do just delete review because I couldn't bypass spring first level cache
     @PostMapping("/removeReview")
     public  List<Review> removeReview(@RequestParam("reviewId") int reviewId,@RequestParam("authorId") int authorId){
         Author author = authorService.findById(authorId);

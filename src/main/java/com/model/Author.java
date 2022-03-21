@@ -30,7 +30,7 @@ public class Author {
     @Column(unique = true)
     private String userName;
     @Column
-    private int passWord;
+    private String passWord;
 
     @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
     @ToString.Exclude
