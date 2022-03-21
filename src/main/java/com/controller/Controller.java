@@ -87,7 +87,7 @@ public class  Controller {
 
             Review review = new Review();
             review.setMovie(movie);
-            review.setComment(comment);
+            //review.setComment(comment);
             review.setRating(rating);
             review.setAuthor(author);
 
