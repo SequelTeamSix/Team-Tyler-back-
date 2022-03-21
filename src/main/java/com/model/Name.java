@@ -12,4 +12,8 @@ import javax.persistence.Embeddable;
 public class Name {
     private String firstName;
     private String lastName;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283

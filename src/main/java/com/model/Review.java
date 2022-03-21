@@ -45,4 +45,8 @@ public class Review {
                 ", author=" + author.getUserName() +
                 ", movie="+ movie.getId()+'}';
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283

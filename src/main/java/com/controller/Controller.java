@@ -36,12 +36,21 @@ public class  Controller {
         return movieService.findAllReviews(id);
     }
     @PostMapping("/signUp")
+<<<<<<< HEAD
     public Author register(@RequestParam("firstName") String firstName, @RequestParam("lastName")
             String lastName, @RequestParam("userName") String userName,
                            @RequestParam("passWord") String passWord){
         Author author = new Author();
         Name name = new Name();
         name.setFirstName(firstName);
+=======
+    public Author register(@RequestParam("firstName") String fistName,@RequestParam("lastName")
+                           String lastName, @RequestParam("userName") String userName,
+                           @RequestParam("passWord") String passWord){
+        Author author = new Author();
+        Name name = new Name();
+        name.setFirstName(fistName);
+>>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283
         name.setLastName(lastName);
         author.setName(name);
         author.setPassWord(passWord.hashCode());
@@ -53,7 +62,11 @@ public class  Controller {
 
     @PutMapping("/postReview")
     public List<Review> postReview(@RequestParam("authorId") int authorId, @RequestParam("comment") String comment, @RequestParam("rating") double rating,
+<<<<<<< HEAD
                                    @RequestParam("movieId") int movieId){
+=======
+                             @RequestParam("movieId") int movieId){
+>>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283
         Author author = authorService.findById(authorId);
         Movie movie = new Movie();
 //        List<Review> movieReviews = new ArrayList<>();
@@ -107,8 +120,16 @@ public class  Controller {
             }
         }
         authorService.saveAuthor(author1);
+<<<<<<< HEAD
 //...
         return author1.getReviews();
     }
 
 }
+=======
+
+        return author1.getReviews();
+    }
+
+}
+>>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283
