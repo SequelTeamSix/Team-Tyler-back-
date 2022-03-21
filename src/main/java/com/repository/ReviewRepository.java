@@ -14,8 +14,4 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
 
     @Query("from Review where id = :id")
     Review findById(int id);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283

@@ -22,8 +22,4 @@ public class AuthorService {
     public Author saveAuthor(Author author){
         return authorRepository.save(author);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283

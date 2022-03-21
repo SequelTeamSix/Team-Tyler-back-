@@ -3,13 +3,6 @@ package com;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-<<<<<<< HEAD
-
-@SpringBootApplication
-public class Application {
-
-
-=======
 /*review:
 spring boot introduces some amount of automatic configuration
 which replaces the need for us to have our own ApplicationContext
@@ -41,7 +34,6 @@ public class Application {
     as well as the xml configuration file,
     on monday
      */
->>>>>>> 364d20e1308109e69c400f2dd3f1fec4786a8283
     public static void main(String[] args){
         SpringApplication.run(Application.class);
     }
