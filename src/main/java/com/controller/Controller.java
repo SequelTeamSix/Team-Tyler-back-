@@ -110,5 +110,14 @@ public class  Controller {
 
         return author1.getReviews();
     }
+    @GetMapping("/authors")
+    public List<Author> getAuthors(){
+        return authorService.findAllAuthors();
+    }
 
+   @GetMapping("/login/{userName}")
+    public String login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord){
+        Author author = authorService.findByUserName(userName);
+        return author.toString();
+    }
 }
