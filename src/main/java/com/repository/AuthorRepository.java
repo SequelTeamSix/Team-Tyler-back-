@@ -18,4 +18,6 @@ public interface AuthorRepository extends JpaRepository<Author,Integer> {
 
     @Query("from Author where userName = :userName")
     Author findAllUserReviews(String userName);
+    @Query("from Author where userName = :userName")
+    Author findByUserName(String userName);
 }
