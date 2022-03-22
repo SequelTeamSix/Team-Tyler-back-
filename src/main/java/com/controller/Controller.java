@@ -122,11 +122,17 @@ public class  Controller {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
+    public void login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
         Author author = authorService.findByUserName(userName);
-        return author.toString();
+        while (true){
+            if (author.getPassWord() == passWord){
+                System.out.println("Welcome!");
+                break;
+            }else{
+                System.out.println("Invalid username/password");
+            }
+        }
     }
-
 }
 
 
