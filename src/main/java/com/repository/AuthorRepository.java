@@ -15,4 +15,7 @@ public interface AuthorRepository extends JpaRepository<Author,Integer> {
     Author findById(int id);
 
     Author save(Author author);
+
+    @Query("from Author where userName = :userName")
+    Author findAllUserReviews(String userName);
 }

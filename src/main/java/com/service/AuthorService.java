@@ -1,6 +1,7 @@
 package com.service;
 
 import com.model.Author;
+import com.model.Review;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.repository.AuthorRepository;
@@ -21,5 +22,10 @@ public class AuthorService {
     }
     public Author saveAuthor(Author author){
         return authorRepository.save(author);
+    }
+
+
+    public List<Review> getAllUserReviews(String userName){
+        return authorRepository.findAllUserReviews(userName).getReviews();
     }
 }

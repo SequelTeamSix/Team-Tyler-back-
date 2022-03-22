@@ -23,14 +23,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 )
 public class Author {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private int id;
     @Column
     private Name name;
     @Column(unique = true)
     private String userName;
     @Column
-    private int passWord;
+    private String passWord;
 
     @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
     @ToString.Exclude

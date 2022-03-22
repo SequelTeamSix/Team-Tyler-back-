@@ -1,10 +1,7 @@
 package com.controller;
 
 
-import com.model.Author;
-import com.model.Movie;
-import com.model.Name;
-import com.model.Review;
+import com.model.*;
 import com.service.AuthorService;
 import com.service.MovieService;
 import com.service.ReviewService;
@@ -43,15 +40,16 @@ public class  Controller {
     }
     @PostMapping("/signUp")
     public Author register(@RequestParam("firstName") String fistName,@RequestParam("lastName")
-                           String lastName, @RequestParam("userName") String userName,
+            String lastName, @RequestParam("userName") String userName,
                            @RequestParam("passWord") String passWord){
         Author author = new Author();
         Name name = new Name();
         name.setFirstName(fistName);
         name.setLastName(lastName);
         author.setName(name);
-        author.setPassWord(passWord.hashCode());
+        Encryption encryption = new Encryption(passWord);
         author.setUserName(userName);
+        author.setPassWord(String.valueOf(encryption.getEncryptedPassWord()));
 
         authorService.saveAuthor(author);
         return author;
@@ -59,10 +57,9 @@ public class  Controller {
 
     @PutMapping("/postReview")
     public List<Review> postReview(@RequestParam("authorId") int authorId, @RequestParam("comment") String comment, @RequestParam("rating") double rating,
-                             @RequestParam("movieId") int movieId){
+                                   @RequestParam("movieId") int movieId){
         Author author = authorService.findById(authorId);
         Movie movie = new Movie();
-//        List<Review> movieReviews = new ArrayList<>();
         List<Review> authorReviews = new ArrayList<>();
         boolean valid = false;
         for(int i=0;i<author.getReviews().size();i++){
@@ -93,6 +90,12 @@ public class  Controller {
         }
         return authorReviews;
     }
+
+    @GetMapping("/userReviews")
+    public List<Review> getAllUserReviews(@RequestParam("userName") String userName){
+        return authorService.getAllUserReviews(userName);
+    }
+    //removing a review. I couldn't do just delete review because I couldn't bypass spring first level cache
     @PostMapping("/removeReview")
     public  List<Review> removeReview(@RequestParam("reviewId") int reviewId,@RequestParam("authorId") int authorId){
         Author author = authorService.findById(authorId);
@@ -117,4 +120,15 @@ public class  Controller {
         return author1.getReviews();
     }
 
+    @PostMapping("/login")
+    public String login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
+        Author author = authorService.findByUserName(userName);
+        return author.toString();
+    }
+
 }
+
+
+
+
+

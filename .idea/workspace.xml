@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91dee294-bd3f-4445-abaf-3e7e32451214" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="91dee294-bd3f-4445-abaf-3e7e32451214" name="Changes" comment="...">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Author.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,7 +72,7 @@
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Application" />
-      <module name="Team-Tyler-back-" />
+      <module name="P2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.*" />
@@ -117,6 +122,49 @@
       <option name="presentableId" value="Default" />
       <updated>1647568890585</updated>
     </task>
+    <task id="LOCAL-00001" summary="...">
+      <created>1647888577167</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647888577167</updated>
+    </task>
+    <task id="LOCAL-00002" summary="...">
+      <created>1647890277867</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647890277869</updated>
+    </task>
+    <task id="LOCAL-00003" summary="...">
+      <created>1647890545272</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647890545273</updated>
+    </task>
+    <task id="LOCAL-00004" summary="...">
+      <created>1647899469731</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1647899469731</updated>
+    </task>
+    <task id="LOCAL-00005" summary="...">
+      <created>1647907690061</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647907690062</updated>
+    </task>
+    <task id="LOCAL-00006" summary="...">
+      <created>1647907740587</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1647907740587</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +173,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -141,6 +194,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
