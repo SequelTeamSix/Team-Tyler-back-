@@ -28,4 +28,8 @@ public class AuthorService {
     public List<Review> getAllUserReviews(String userName){
         return authorRepository.findAllUserReviews(userName).getReviews();
     }
+
+    public Author findByUserName(String userName) {
+        return authorRepository.findByUserName(userName);
+    }
 }
