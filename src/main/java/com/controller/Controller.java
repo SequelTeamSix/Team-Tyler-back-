@@ -1,10 +1,7 @@
 package com.controller;
 
 
-import com.model.Author;
-import com.model.Movie;
-import com.model.Name;
-import com.model.Review;
+import com.model.*;
 import com.service.AuthorService;
 import com.service.MovieService;
 import com.service.ReviewService;
@@ -44,8 +41,9 @@ public class  Controller {
         name.setFirstName(fistName);
         name.setLastName(lastName);
         author.setName(name);
-        author.setPassWord(String.valueOf(passWord.hashCode()));
+        Encryption encryption = new Encryption(passWord);
         author.setUserName(userName);
+        author.setPassWord(String.valueOf(encryption.getEncryptedPassWord()));
 
         authorService.saveAuthor(author);
         return author;
@@ -85,6 +83,11 @@ public class  Controller {
             reviewService.saveReview(review);
         }
         return authorReviews;
+    }
+
+    @GetMapping("/userReviews")
+    public List<Review> getAllUserReviews(@RequestParam("userName") String userName){
+        return authorService.getAllUserReviews(userName);
     }
     //removing a review. I couldn't do just delete review because I couldn't bypass spring first level cache
     @PostMapping("/removeReview")
