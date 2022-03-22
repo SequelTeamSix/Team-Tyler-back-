@@ -116,8 +116,10 @@ public class  Controller {
     }
 
    @GetMapping("/login/{userName}")
-    public String login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord){
+    public void login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord){
         Author author = authorService.findByUserName(userName);
-        return author.toString();
+        if (author.getPassWord() == passWord){
+
+       }
     }
 }

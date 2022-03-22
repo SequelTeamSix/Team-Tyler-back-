@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91dee294-bd3f-4445-abaf-3e7e32451214" name="Changes" comment="...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/Author.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Author.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/repository/AuthorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/repository/AuthorRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/AuthorService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647890545273</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="...">
+      <created>1647899469731</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1647899469731</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
