@@ -10,12 +10,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
-import com.model.Encryption;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @AllArgsConstructor
@@ -137,11 +133,21 @@ public class  Controller {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
+    public Boolean login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
         Author author = authorService.findByUserName(userName);
-        return author.toString();
+        System.out.println(passWord);
+        System.out.println(author.getPassWord());
+        Encryption cryptPassword = new Encryption(passWord);
+        System.out.println(cryptPassword.getEncryptedPassWord());
+        if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){
+            System.out.println("Welcome!");
+            return true;
+        }else{
+            System.out.println(passWord.equals(author.getPassWord()));
+            System.out.println(author.getId());
+            return false;
+        }
     }
-
 }
 
 
