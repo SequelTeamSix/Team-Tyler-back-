@@ -119,7 +119,7 @@ public class  Controller {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
+    public Boolean login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
         Author author = authorService.findByUserName(userName);
         System.out.println(passWord);
         System.out.println(author.getPassWord());
@@ -127,11 +127,11 @@ public class  Controller {
         System.out.println(cryptPassword.getEncryptedPassWord());
         if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){
             System.out.println("Welcome!");
-            return "hello";
+            return true;
         }else{
             System.out.println(passWord.equals(author.getPassWord()));
             System.out.println(author.getId());
-            return author.toString();
+            return false;
         }
     }
 }
