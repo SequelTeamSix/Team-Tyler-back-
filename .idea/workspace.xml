@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Author.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647907740587</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="...">
+      <created>1647983409923</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1647983409924</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,7 +180,7 @@
             <State>
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
-                  <entry key="Show.Git.Branches" value="false" />
+                  <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
               <option name="FILTERS">
