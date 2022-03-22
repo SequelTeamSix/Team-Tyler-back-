@@ -30,6 +30,12 @@ public class  Controller {
     @Autowired
     AuthorService authorService;
 
+    
+    @GetMapping("/test")
+    public String message(){
+        return "Congrats, azure is connected and the app is running";
+    }
+    
     // getting reviews by movie id
     @GetMapping("/reviews")
     public List<Review> getReviews(@RequestParam("id") int id){
