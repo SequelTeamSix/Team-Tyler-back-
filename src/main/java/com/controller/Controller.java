@@ -36,8 +36,15 @@ public class  Controller {
     
     // getting reviews by movie id
     @GetMapping("/reviews")
-    public List<Review> getReviews(@RequestParam("id") int id){
-        return movieService.findAllReviews(id);
+    public List<String> getReviews(@RequestParam("id") int id){
+        List<String> reviews=new ArrayList<>();
+        List<Review> reviewList =movieService.findAllReviews(id);
+        if (reviewList.size()>=1){
+            for (int i=0;i<reviewList.size();i++){
+                reviews.add(reviewList.get(i).toString());
+            }
+        }
+        return reviews;
     }
     @PostMapping("/signUp")
     public Author register(@RequestParam("firstName") String fistName,@RequestParam("lastName")
@@ -93,8 +100,16 @@ public class  Controller {
     }
 
     @GetMapping("/userReviews")
-    public List<Review> getAllUserReviews(@RequestParam("userName") String userName){
-        return authorService.getAllUserReviews(userName);
+    public List<String> getAllUserReviews(@RequestParam("userName") String userName){
+
+        List<String> reviews = new ArrayList<>();
+        List<Review> reviewList = authorService.getAllUserReviews(userName);
+        if (reviewList.size()>=1){
+            for (int i=0;i<reviewList.size();i++){
+                reviews.add(reviewList.get(i).toString());
+            }
+        }
+        return reviews;
     }
     //removing a review. I couldn't do just delete review because I couldn't bypass spring first level cache
     @PostMapping("/removeReview")

@@ -42,7 +42,6 @@ public class Review {
                 "id=" + id +
                 ", rating=" + rating +
                 ", comment='" + comment + '\'' +
-                ", author=" + author.getUserName() +
-                ", movie="+ movie.getId()+'}';
+                ", author=" + author.getUserName()+'}';
     }
 }

@@ -23,8 +23,6 @@ public class AuthorService {
     public Author saveAuthor(Author author){
         return authorRepository.save(author);
     }
-
-
     public List<Review> getAllUserReviews(String userName){
         return authorRepository.findAllUserReviews(userName).getReviews();
     }
