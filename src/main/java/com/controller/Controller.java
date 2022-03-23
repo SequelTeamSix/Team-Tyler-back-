@@ -11,7 +11,6 @@ import com.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -35,9 +34,9 @@ public class  Controller {
     
     // getting reviews by movie id
     @GetMapping("/reviews")
-    public List<ReviewResponse> getReviews(@RequestParam("id") int id){
+    public List<ReviewResponse> getReviews(@RequestBody Movie movie){
         List<ReviewResponse> reviews=new ArrayList<>();
-        List<Review> reviewList =movieService.findAllReviews(id);
+        List<Review> reviewList =movieService.findAllReviews(movie.getId());
         for (Review r: reviewList){
             reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
         }
@@ -46,19 +45,10 @@ public class  Controller {
 
 
     @PostMapping("/signUp")
-    public AuthorResponse register(@RequestParam("firstName") String fistName,@RequestParam("lastName")
-            String lastName, @RequestParam("userName") String userName,
-                           @RequestParam("passWord") String passWord){
-        Author author = new Author();
-        Name name = new Name();
-        name.setFirstName(fistName);
-        name.setLastName(lastName);
-        author.setName(name);
-        Encryption encryption = new Encryption(passWord);
-        author.setUserName(userName);
-        author.setPassWord(String.valueOf(encryption.getEncryptedPassWord()));
-
-        authorService.saveAuthor(author);
+    public AuthorResponse register(@RequestBody Author author){
+        Encryption encryption = new Encryption(author.getPassWord());
+        author.setPassWord(encryption.getEncryptedPassWord());
+        author = authorService.saveAuthor(author);
         AuthorResponse response = new AuthorResponse();
         response.setId(author.getId());
         response.setName(author.getName());
@@ -69,19 +59,18 @@ public class  Controller {
     }
 
     @PutMapping("/postReview")
-    public List<ReviewResponse> postReview(@RequestParam("authorId") int authorId, @RequestParam("comment") String comment, @RequestParam("rating") double rating,
-                                   @RequestParam("movieId") int movieId){
-        Author author = authorService.findById(authorId);
+    public List<ReviewResponse> postReview(@RequestBody Review review){
+        Author author = authorService.findById(review.getAuthor().getId());
         Movie movie = new Movie();
         List<Review> authorReviews = new ArrayList<>();
         boolean valid = false;
         List<ReviewResponse> reviews=new ArrayList<>();
         for(int i=0;i<author.getReviews().size();i++){
-            if (author.getReviews().get(i).getMovie().getId() == movieId){
+            if (author.getReviews().get(i).getMovie().getId() == review.getMovie().getId()){
                 valid = true;
                 i=author.getReviews().size()-1;
-                author.getReviews().get(i).setComment(comment);
-                author.getReviews().get(i).setRating(rating);
+                author.getReviews().get(i).setComment(review.getComment());
+                author.getReviews().get(i).setRating(review.getRating());
                 authorService.saveAuthor(author);
                 reviews.add(new ReviewResponse(author.getReviews().get(i).getId(),author.getReviews().get(i).getRating(),
                         author.getReviews().get(i).getComment(),author.getReviews().get(i).getAuthor().getUserName(),
@@ -93,30 +82,30 @@ public class  Controller {
             }
         }
         if (!valid){
-            movie.setId(movieId);
+            movie.setId(review.getMovie().getId()
+            );
 
-            Review review = new Review();
-            review.setMovie(movie);
-            review.setComment(comment);
-            review.setRating(rating);
-            review.setAuthor(author);
+            Review r = new Review();
+            r.setMovie(movie);
+            r.setComment(review.getComment());
+            r.setRating(review.getRating());
+            r.setAuthor(author);
 
-            authorReviews.add(review);
+            authorReviews.add(r);
             author.setReviews(authorReviews);
-            reviews.add(new ReviewResponse(review.getId(),review.getRating(),review.getComment(),review.getAuthor().getUserName(),
-                    review.getMovie().getId()));
-//            movieReviews.add(review);
             movieService.saveMovie(movie);
-            reviewService.saveReview(review);
+            r=reviewService.saveReview(r);
+            reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),
+                    r.getMovie().getId()));
         }
         return reviews;
     }
 
     @GetMapping("/userReviews")
-    public List<ReviewResponse> getAllUserReviews(@RequestParam("userName") String userName){
+    public List<ReviewResponse> getAllUserReviews(@RequestBody Author author){
 
         List<ReviewResponse> reviews =new ArrayList<>();
-        List<Review> reviewList = authorService.getAllUserReviews(userName);
+        List<Review> reviewList = authorService.getAllUserReviews(author.getUserName());
         for (Review r: reviewList){
             reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
 
@@ -127,11 +116,11 @@ public class  Controller {
 
     //removing a review. I couldn't do just delete review because I couldn't bypass spring first level cache
     @DeleteMapping("/removeReview")
-    public  List<ReviewResponse> removeReview(@RequestParam("reviewId") int reviewId,@RequestParam("authorId") int authorId){
-        Author author = authorService.findById(authorId);
+    public  List<ReviewResponse> removeReview(@RequestBody Review re){
+        Author author = authorService.findById(re.getAuthor().getId());
         List<ReviewResponse> responses =new ArrayList<>();
         for (Review r: author.getReviews()){
-            if (r.getId() == reviewId){
+            if (r.getId() == re.getId()){
                 reviewService.deleteReview(r);
                 Aspects.logger.info(author.getUserName()+" has successfully remove a review");
             }else {
@@ -142,20 +131,20 @@ public class  Controller {
     }
 
     @PostMapping("/login")
-    public Boolean login(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
-        Author author = authorService.findByUserName(userName);
-        System.out.println(passWord);
+    public Boolean login(@RequestBody Author at) {
+        Author author = authorService.findByUserName(at.getUserName());
+        System.out.println(at.getPassWord());
         System.out.println(author.getPassWord());
-        Encryption cryptPassword = new Encryption(passWord);
+        Encryption cryptPassword = new Encryption(at.getPassWord());
         System.out.println(cryptPassword.getEncryptedPassWord());
         if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){
             System.out.println("Welcome!");
-            Aspects.logger.info(userName+" has successfully logIn");
+            Aspects.logger.info(author.getUserName()+" has successfully logIn");
             return true;
         }else{
-            System.out.println(passWord.equals(author.getPassWord()));
+            System.out.println(at.getPassWord().equals(author.getPassWord()));
             System.out.println(author.getId());
-            Aspects.logger.warn(userName+" could not login due to wrong inputs");
+            Aspects.logger.warn(at.getUserName()+" could not login due to wrong inputs");
             return false;
         }
     }

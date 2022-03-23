@@ -24,7 +24,7 @@ public class Aspects {
     }
     @Before("execution(* register(..))")
     public void beforeCreatingAccount(){
-        logger.info("Using trying to create an account");
+        logger.info("User trying to create an account");
     }
 
     @AfterReturning("execution(* register(..))")
@@ -39,7 +39,6 @@ public class Aspects {
 
     @Before("execution(* login(..))")
     public void beforeLogin(){
-
         logger.info("User trying to login");
     }
 
