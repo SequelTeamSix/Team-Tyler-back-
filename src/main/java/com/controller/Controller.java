@@ -44,15 +44,17 @@ public class  Controller {
     }
 
 
-    @PutMapping("/signUp")
+    @PostMapping("/signUp")
     public AuthorResponse register(@RequestBody Author author){
         Encryption encryption = new Encryption(author.getPassWord());
         author.setPassWord(encryption.getEncryptedPassWord());
-        author = authorService.saveAuthor(author);
+        List<Review> reviews = new ArrayList<>();
+        author.setReviews(reviews);
+        Author at = authorService.saveAuthor(author);
         AuthorResponse response = new AuthorResponse();
-        response.setId(author.getId());
-        response.setName(author.getName());
-        for(Review r: author.getReviews()){
+        response.setId(at.getId());
+        response.setName(at.getName());
+        for(Review r: at.getReviews()){
             response.getReviews().add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getAuthor().getId()));
         }
         return response;
