@@ -17,22 +17,17 @@ public class AuthorService {
     }
 
     public Author findById(int id){
-        return authorRepository.findById(id);
+        Author author = authorRepository.findById(id);
+        return author;
     }
     public Author saveAuthor(Author author){
         return authorRepository.save(author);
     }
-
-
     public List<Review> getAllUserReviews(String userName){
         return authorRepository.findAllUserReviews(userName).getReviews();
     }
 
     public Author findByUserName(String userName) {
         return authorRepository.findByUserName(userName);
-    }
-
-    public List<Author> getAllAuthors() {
-        return authorRepository.findAll();
     }
 }

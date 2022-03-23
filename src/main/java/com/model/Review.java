@@ -36,13 +36,4 @@ public class Review {
     @ManyToOne(fetch = FetchType.EAGER)
     private Movie movie;
 
-    @Override
-    public String toString() {
-        return "Review{" +
-                "id=" + id +
-                ", rating=" + rating +
-                ", comment='" + comment + '\'' +
-                ", author=" + author.getUserName() +
-                ", movie="+ movie.getId()+'}';
-    }
 }
