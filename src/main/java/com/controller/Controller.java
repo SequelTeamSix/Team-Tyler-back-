@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import com.apects.Aspects;
 import com.model.*;
 import com.response.AuthorResponse;
 import com.response.ReviewResponse;
@@ -118,6 +119,7 @@ public class  Controller {
         List<Review> reviewList = authorService.getAllUserReviews(userName);
         for (Review r: reviewList){
             reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
+
         }
         return reviews;
     }
@@ -131,6 +133,7 @@ public class  Controller {
         for (Review r: author.getReviews()){
             if (r.getId() == reviewId){
                 reviewService.deleteReview(r);
+                Aspects.logger.info(author.getUserName()+" has successfully remove a review");
             }else {
                 responses.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
             }
@@ -147,10 +150,12 @@ public class  Controller {
         System.out.println(cryptPassword.getEncryptedPassWord());
         if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){
             System.out.println("Welcome!");
+            Aspects.logger.info(userName+" has successfully logIn");
             return true;
         }else{
             System.out.println(passWord.equals(author.getPassWord()));
             System.out.println(author.getId());
+            Aspects.logger.warn(userName+" could not login due to wrong inputs");
             return false;
         }
     }

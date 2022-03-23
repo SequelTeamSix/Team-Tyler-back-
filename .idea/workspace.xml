@@ -6,27 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="91dee294-bd3f-4445-abaf-3e7e32451214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/apects/Aspects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/apects/Aspects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/apects/Aspects.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/apects/Aspects.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Author.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Encryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Encryption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Name.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Name.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Review.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/repository/AuthorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/repository/AuthorRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/repository/MovieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/repository/MovieRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/repository/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/repository/ReviewRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/response/AuthorResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/response/AuthorResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/response/ReviewResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/response/ReviewResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/AuthorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/MovieService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/ReviewService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +46,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
