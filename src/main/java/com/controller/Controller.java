@@ -74,14 +74,21 @@ public class  Controller {
         Movie movie = new Movie();
         List<Review> authorReviews = new ArrayList<>();
         boolean valid = false;
+        List<ReviewResponse> reviews=new ArrayList<>();
         for(int i=0;i<author.getReviews().size();i++){
             if (author.getReviews().get(i).getMovie().getId() == movieId){
-                System.out.println("already has a review");
                 valid = true;
                 i=author.getReviews().size()-1;
                 author.getReviews().get(i).setComment(comment);
                 author.getReviews().get(i).setRating(rating);
                 authorService.saveAuthor(author);
+                reviews.add(new ReviewResponse(author.getReviews().get(i).getId(),author.getReviews().get(i).getRating(),
+                        author.getReviews().get(i).getComment(),author.getReviews().get(i).getAuthor().getUserName(),
+                        author.getReviews().get(i).getMovie().getId()));
+            }else {
+                reviews.add(new ReviewResponse(author.getReviews().get(i).getId(),author.getReviews().get(i).getRating(),
+                        author.getReviews().get(i).getComment(),author.getReviews().get(i).getAuthor().getUserName(),
+                        author.getReviews().get(i).getMovie().getId()));
             }
         }
         if (!valid){
@@ -95,14 +102,11 @@ public class  Controller {
 
             authorReviews.add(review);
             author.setReviews(authorReviews);
-
+            reviews.add(new ReviewResponse(review.getId(),review.getRating(),review.getComment(),review.getAuthor().getUserName(),
+                    review.getMovie().getId()));
 //            movieReviews.add(review);
             movieService.saveMovie(movie);
             reviewService.saveReview(review);
-        }
-        List<ReviewResponse> reviews=new ArrayList<>();
-        for (Review r: authorReviews){
-            reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
         }
         return reviews;
     }
@@ -120,34 +124,16 @@ public class  Controller {
 
 
     //removing a review. I couldn't do just delete review because I couldn't bypass spring first level cache
-    @PostMapping("/removeReview")
+    @DeleteMapping("/removeReview")
     public  List<ReviewResponse> removeReview(@RequestParam("reviewId") int reviewId,@RequestParam("authorId") int authorId){
         Author author = authorService.findById(authorId);
-        Author author1 = new Author();
-        author1.setId(author.getId());
-        author1.setName(author.getName());
-        author1.setUserName(author.getUserName());
-        author1.setPassWord(author.getPassWord());
-        List<Review> reviews= new ArrayList<>();
-        author1.setReviews(reviews);
+        List<ReviewResponse> responses =new ArrayList<>();
         for (Review r: author.getReviews()){
             if (r.getId() == reviewId){
-                reviewService.deleteReview(reviewId);
-
-                List<ReviewResponse> responses =new ArrayList<>();
-                for (Review re: author1.getReviews()){
-                    responses.add(new ReviewResponse(re.getId(),re.getRating(),re.getComment(),re.getAuthor().getUserName(),re.getMovie().getId()));
-                }
-                return responses;
+                reviewService.deleteReview(r);
             }else {
-                reviews.add(r);
+                responses.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
             }
-        }
-        authorService.saveAuthor(author1);
-
-        List<ReviewResponse> responses =new ArrayList<>();
-        for (Review r: author1.getReviews()){
-            responses.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
         }
         return responses;
     }
