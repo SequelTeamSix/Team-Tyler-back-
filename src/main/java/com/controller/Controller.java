@@ -34,9 +34,9 @@ public class  Controller {
     
     // getting reviews by movie id
     @GetMapping("/reviews")
-    public List<ReviewResponse> getReviews(@RequestBody Movie movie){
+    public List<ReviewResponse> getReviews(@RequestParam("id") int id){
         List<ReviewResponse> reviews=new ArrayList<>();
-        List<Review> reviewList =movieService.findAllReviews(movie.getId());
+        List<Review> reviewList =movieService.findAllReviews(id);
         for (Review r: reviewList){
             reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
         }
@@ -44,7 +44,7 @@ public class  Controller {
     }
 
 
-    @PostMapping("/signUp")
+    @PutMapping("/signUp")
     public AuthorResponse register(@RequestBody Author author){
         Encryption encryption = new Encryption(author.getPassWord());
         author.setPassWord(encryption.getEncryptedPassWord());
@@ -102,10 +102,10 @@ public class  Controller {
     }
 
     @GetMapping("/userReviews")
-    public List<ReviewResponse> getAllUserReviews(@RequestBody Author author){
+    public List<ReviewResponse> getAllUserReviews(@RequestParam("userName") String username){
 
         List<ReviewResponse> reviews =new ArrayList<>();
-        List<Review> reviewList = authorService.getAllUserReviews(author.getUserName());
+        List<Review> reviewList = authorService.getAllUserReviews(username);
         for (Review r: reviewList){
             reviews.add(new ReviewResponse(r.getId(),r.getRating(),r.getComment(),r.getAuthor().getUserName(),r.getMovie().getId()));
 
