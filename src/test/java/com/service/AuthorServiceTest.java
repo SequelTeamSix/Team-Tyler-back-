@@ -1,5 +1,8 @@
 package com.service;
 
+import com.model.Author;
+import com.model.Movie;
+import com.model.Review;
 import com.repository.AuthorRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,8 +41,22 @@ class AuthorServiceTest {
 
     @Test
     void getAllUserReviews() {
+        Author author = new Author();
+        author.setPassWord("password");
+        author.setUserName("user");
+        authorRepository.save(author);
+
+        Movie movie = new Movie();
+
+        Review review = new Review();
+        review.setAuthor(author);
+        review.setComment("Wuz good");
+        review.setRating(5.5);
+        review.setMovie(movie);
+
+        System.out.println(review.toString());
         //when
-        //underTest.getAllUserReviews();
+        underTest.getAllUserReviews("user");
         //then
         //verify(authorRepository).findAll();
     }

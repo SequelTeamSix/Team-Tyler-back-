@@ -1,10 +1,13 @@
 package com.repository;
 
 import com.model.Author;
+import com.model.Review;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +21,6 @@ class AuthorRepositoryTest {
         underTest.deleteAll();
     }
 
-
     @Test
     void findById() {
 
@@ -30,6 +32,14 @@ class AuthorRepositoryTest {
 
     @Test
     void findAllUserReviews() {
+        //given
+        Author author = new Author();
+        author.setPassWord("password");
+        author.setUserName("user");
+        underTest.save(author);
+        //when
+        List<Review> reviews = author.getReviews();
+
     }
 
     @Test
@@ -39,10 +49,8 @@ class AuthorRepositoryTest {
         author.setPassWord("password");
         author.setUserName("user");
         underTest.save(author);
-
         //when
         Author exists = underTest.findByUserName("user");
-
         //Then
         assertSame("password", exists.getPassWord());
     }
