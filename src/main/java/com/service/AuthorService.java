@@ -17,8 +17,7 @@ public class AuthorService {
     }
 
     public Author findById(int id){
-        Author author = authorRepository.findById(id);
-        return author;
+        return authorRepository.findById(id);
     }
     public Author saveAuthor(Author author){
         return authorRepository.save(author);
@@ -31,5 +30,9 @@ public class AuthorService {
 
     public Author findByUserName(String userName) {
         return authorRepository.findByUserName(userName);
+    }
+
+    public List<Author> getAllAuthors() {
+        return authorRepository.findAll();
     }
 }
