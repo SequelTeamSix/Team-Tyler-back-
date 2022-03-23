@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="91dee294-bd3f-4445-abaf-3e7e32451214" name="Changes" comment="...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/repository/AuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/AuthorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Author.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/repository/AuthorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/repository/AuthorRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/AuthorService.class" afterDir="false" />
-=======
     <list default="true" id="91dee294-bd3f-4445-abaf-3e7e32451214" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/model/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/model/Review.class" afterDir="false" />
->>>>>>> walterBE
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/apects/Aspects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/apects/Aspects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/Controller.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +46,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -183,7 +169,35 @@
       <option name="project" value="LOCAL" />
       <updated>1647983409924</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="...">
+      <created>1647984107069</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1647984107069</updated>
+    </task>
+    <task id="LOCAL-00009" summary="...">
+      <created>1647984286961</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1647984286961</updated>
+    </task>
+    <task id="LOCAL-00010" summary="...">
+      <created>1647985075603</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1647985075603</updated>
+    </task>
+    <task id="LOCAL-00011" summary="...">
+      <created>1647987834186</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1647987834189</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
