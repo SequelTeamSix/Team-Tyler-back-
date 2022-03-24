@@ -133,21 +133,21 @@ public class  Controller {
     }
 
     @PostMapping("/login")
-    public Boolean login(@RequestBody Author at) {
+    public AuthorResponse login(@RequestBody Author at) {
         Author author = authorService.findByUserName(at.getUserName());
-        System.out.println(at.getPassWord());
-        System.out.println(author.getPassWord());
+        //System.out.println(at.getPassWord());
+       // System.out.println(author.getPassWord());
         Encryption cryptPassword = new Encryption(at.getPassWord());
-        System.out.println(cryptPassword.getEncryptedPassWord());
+      //  System.out.println(cryptPassword.getEncryptedPassWord());
         if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){
-            System.out.println("Welcome!");
+         //   System.out.println("Welcome!");
             Aspects.logger.info(author.getUserName()+" has successfully logIn");
-            return true;
+            return response;
         }else{
-            System.out.println(at.getPassWord().equals(author.getPassWord()));
-            System.out.println(author.getId());
+          //  System.out.println(at.getPassWord().equals(author.getPassWord()));
+            //System.out.println(author.getId());
             Aspects.logger.warn(at.getUserName()+" could not login due to wrong inputs");
-            return false;
+            return null;
         }
     }
 }
