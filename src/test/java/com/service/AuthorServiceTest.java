@@ -4,31 +4,64 @@ import com.model.Author;
 import com.model.Movie;
 import com.model.Review;
 import com.repository.AuthorRepository;
-import org.junit.jupiter.api.AfterEach;
+import com.repository.ReviewRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mockito;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 
 class AuthorServiceTest {
+//    Author tman17 = new Author();
+//    Author tman17Mock= new Author();
+//    Connection mockConnection;
+//    PreparedStatement mockPrepared;
+//    ResultSet mockResultForGetPainting;
 
-    @Mock
+//    @BeforeAll
+//    public void SetUpMocks() throws SQLException{
+//        tman17.setUserName("tman17");
+//        tman17.getPassWord("password");
+//    }
+
+    private AuthorService authorService;
     private AuthorRepository authorRepository;
-    private AutoCloseable autoCloseable;
-    private AuthorService underTest;
+    private ReviewService reviewService;
+    private ReviewRepository reviewRepository;
+
+    private List<Author> authors;
+    private Author author;
+    private List<Review> reviews;
+    private Review review;
+
+    private static boolean deleteCalled = false;
 
     @BeforeEach
-    void setUp(){
-        autoCloseable = MockitoAnnotations.openMocks(this);
-        underTest = new AuthorService(authorRepository);
-    }
+    void setup(){
+        authorRepository = Mockito.mock(AuthorRepository.class);
+        authorService = new AuthorService(authorRepository);
 
-    @AfterEach
-    void tearDown() throws Exception {
-        autoCloseable.close();
+        reviewRepository = Mockito.mock(ReviewRepository.class);
+        reviewService = new ReviewService(reviewRepository);
+
+        authors = new ArrayList<>();
+        Author rogerEbert = new Author();
+        rogerEbert.setUserName("rebert");
+        rogerEbert.setPassWord("password");
+        authors.add(rogerEbert);
+
+
+        reviews = new ArrayList<>();
+        Review jaws = new Review();
+        jaws.setAuthor(rogerEbert);
+        jaws.setRating(9.0);
+        jaws.setComment("It was mad scary bruh");
+        reviews.add(jaws);
     }
 
     @Test
@@ -42,32 +75,14 @@ class AuthorServiceTest {
 
     @Test
     void getAllUserReviews() {
-        Author author = new Author();
-        author.setPassWord("password");
-        author.setUserName("user");
-        authorRepository.save(author);
-
-        Movie movie = new Movie();
-
-        Review review = new Review();
-        review.setAuthor(author);
-        review.setComment("Wuz good");
-        review.setRating(5.5);
-        review.setMovie(movie);
-
-        System.out.println(review.toString());
-        //when
-        underTest.getAllUserReviews("user");
-        //then
-        //verify(authorRepository).findAll();
+       when(authorRepository.findAllUserReviews("rebert")).thenReturn(author);
+       assertEquals(authorService.getAllUserReviews("rebert"), reviews);
     }
 
     @Test
     void getAllAuthors() {
-        //when
-        underTest.getAllAuthors();
-        //then
-        verify(authorRepository).findAll();
+        when(authorRepository.findAll()).thenReturn(authors);
+        assertEquals(authorService.getAllAuthors(), authors);
     }
 
     @Test

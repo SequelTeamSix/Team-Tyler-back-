@@ -102,14 +102,29 @@ public class ControllerTest {
     }
 
     @Test
-    void getAllUserReviews() {
+    void getAllUserReviews() throws Exception {
+        when(authorService.getAllUserReviews("rebert")).thenReturn(reviews);
+        this.mockMvc.perform(get("/userReviews")
+                .content("{\"userName\": \"rebert\"")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print());
     }
 
     @Test
-    void removeReview() {
+    void removeReview() throws Exception {
+        when(authorService.findById(1)).thenReturn(rogerEbert);
+        this.mockMvc.perform(delete("/removeReview")
+                        .content("{\"id\": \""+ jaws.getId()+"\"")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print());
     }
 
     @Test
-    void login() {
+    void login() throws Exception {
+        when(authorService.findByUserName("rebert")).thenReturn(rogerEbert);
+        this.mockMvc.perform(post("/login")
+                        .content("{\"author\":{\"userName\":\"rogerEbert\",\"passWord\":\"password\"}\"")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print());
     }
 }
