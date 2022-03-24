@@ -138,7 +138,7 @@ public class  Controller {
         Encryption cryptPassword = new Encryption(at.getPassWord());
         //System.out.println(cryptPassword.getEncryptedPassWord());
         AuthorResponse response = new AuthorResponse();
-        response.setId(at.getId());
+        response.setId(author.getId());
         response.setName(at.getName());
 
         if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){

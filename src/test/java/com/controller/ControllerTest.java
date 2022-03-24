@@ -51,6 +51,7 @@ public class ControllerTest {
 
     private static boolean deleteCalled = false;
     private Author kevin = new Author();
+    private Review jaws = new Review();
 
     @BeforeEach
     public void setup(){
@@ -66,7 +67,7 @@ public class ControllerTest {
         authors.add(kevin);
 
         reviews = new ArrayList<>();
-        Review jaws = new Review();
+
         jaws.setAuthor(rogerEbert);
         jaws.setRating(9.0);
         jaws.setComment("It was mad scary bruh");
@@ -91,7 +92,13 @@ public class ControllerTest {
     }
 
     @Test
-    void postReview() {
+    void postReview() throws Exception {
+        when(reviewService.saveReview(any(Review.class))).thenReturn(review);
+        this.mockMvc.perform(put("/postReview")
+                        .content("{\"author\":{\"userName\":\"rogerEbert\",\"passWord\":\"password\"}\",\"rating\":9.0, " +
+                                "\"comment\":\"It was mad scary bruh\"}")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print());
     }
 
     @Test
