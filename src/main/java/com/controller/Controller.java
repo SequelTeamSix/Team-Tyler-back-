@@ -1,4 +1,7 @@
-package com.controller;
+
+ AuthorResponse response = new AuthorResponse();
+        response.setId(author.getId());
+        response.setName(at.getName());package com.controller;
 
 
 import com.apects.Aspects;
@@ -139,6 +142,9 @@ public class  Controller {
        // System.out.println(author.getPassWord());
         Encryption cryptPassword = new Encryption(at.getPassWord());
       //  System.out.println(cryptPassword.getEncryptedPassWord());
+         AuthorResponse response = new AuthorResponse();
+        response.setId(author.getId());
+        response.setName(at.getName());
         if (cryptPassword.getEncryptedPassWord().equals(author.getPassWord())){
          //   System.out.println("Welcome!");
             Aspects.logger.info(author.getUserName()+" has successfully logIn");
