@@ -1,9 +1,3 @@
-
- AuthorResponse response = new AuthorResponse();
-        response.setId(author.getId());
-        response.setName(at.getName());package com.controller;
-
-
 import com.apects.Aspects;
 import com.model.*;
 import com.response.AuthorResponse;
